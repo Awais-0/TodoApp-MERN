@@ -10,7 +10,6 @@ const Login = () => {
     username: '',
     password: ''
   });
-  console.log()
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [isLoading, setIsLoading] = useState(false);
