@@ -5,11 +5,12 @@ import bgImage from '../assets/bg2.jpg'
 const Login = () => {
   const navigate = useNavigate();
 
+  console.log(import.meta.env.VITE_API_URL)
   const [formData, setFormData] = useState({
     username: '',
     password: ''
   });
-
+  console.log()
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [isLoading, setIsLoading] = useState(false);
