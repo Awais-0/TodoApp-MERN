@@ -41,7 +41,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:4000/api/users/register', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/register`, {
         method: 'POST',
         body: payload,
       });
@@ -65,7 +65,7 @@ const SignUp = () => {
           password: formData.password
         };
         try {
-          const response = await fetch('http://localhost:4000/api/users/login', {
+          const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/login`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

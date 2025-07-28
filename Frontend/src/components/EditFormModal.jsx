@@ -27,7 +27,7 @@ const EditFormModal = ({ user, editForm, setEditForm }) => {
 
     try {
       // Update profile fields
-      const profileRes = await fetch("http://localhost:4000/api/users/update-data", {
+      const profileRes = await fetch(`${import.meta.env.VITE_API_URL}/api/users/update-data`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -44,7 +44,7 @@ const EditFormModal = ({ user, editForm, setEditForm }) => {
         const avatarData = new FormData();
         avatarData.append("avatar", avatar);
 
-        const avatarRes = await fetch("http://localhost:4000/api/users/update-avatar", {
+        const avatarRes = await fetch(`${import.meta.env.VITE_API_URL}/api/users/update-avatar`, {
           method: "PUT",
           credentials: "include",
           body: avatarData,

@@ -18,13 +18,13 @@ const TodoApp = () => {
   useEffect(() => {
     const fetchUserAndTodos = async () => {
       try {
-        const authRes = await fetch("http://localhost:4000/api/users/check-auth", {
+        const authRes = await fetch(`${import.meta.env.VITE_API_URL}/api/users/check-auth`, {
           credentials: "include",
         });
 
         if (!authRes.ok) return navigate("/");
 
-        const userRes = await fetch("http://localhost:4000/api/users/get-current-user", {
+        const userRes = await fetch(`${import.meta.env.VITE_API_URL}/api/users/get-current-user`, {
           credentials: "include",
         });
 
@@ -46,7 +46,7 @@ const TodoApp = () => {
 
   const fetchTodos = async () => {
     try {
-      const todosResponse = await fetch("http://localhost:4000/api/users/get-user-todos", {
+      const todosResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/users/get-user-todos`, {
         credentials: "include",
       });
 
@@ -65,7 +65,7 @@ const TodoApp = () => {
     if (!formData.title.trim()) return;
 
     try {
-      const response = await fetch("http://localhost:4000/api/users/add-todo", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/add-todo`, {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -91,7 +91,7 @@ const TodoApp = () => {
 
   const removeItem = async (id) => {
   try {
-    const response = await fetch(`http://localhost:4000/api/users/delete-todo/${id}`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/delete-todo/${id}`, {
       method: "GET",
       credentials: "include",
     });
@@ -110,7 +110,7 @@ const TodoApp = () => {
 
   const toggleIsComplete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4000/api/users/toggle-isCompleteTodo/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/toggle-isCompleteTodo/${id}`, {
         method: "PATCH",
         credentials: "include",
       });
@@ -131,7 +131,7 @@ const TodoApp = () => {
 
   const logout = async () => {
     try {
-      const response = await fetch("http://localhost:4000/api/users/logout", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/logout`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

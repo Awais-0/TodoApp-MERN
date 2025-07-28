@@ -4,8 +4,10 @@ import cors from 'cors';
 
 export const App = express();
 
+
+const allowedOrigin = process.env.CLIENT_URL || "http://localhost:5173";
 App.use(cors({
-    origin: process.env.CORS_ORIGIN,
+    origin: allowedOrigin,
     credentials: true
 }));
 App.use(express.json({limit: '16kb'}));

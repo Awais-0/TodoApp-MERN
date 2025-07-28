@@ -6,7 +6,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:4000/api/users/check-auth', {
+    fetch(`${import.meta.env.VITE_API_URL}/api/users/check-auth`, {
       credentials: 'include',
     })
       .then(res => {
